@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>galgamuwa sabha</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar-container {
+            position: relative;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: rgba(245, 240, 240, 0.951);
+            padding: 10px 20px;
+            color: black;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .logo img {
+            height: 70px;
+            margin-right: 10px;
+            width: 70px;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul li {
+            margin: 0 15px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: rgb(11, 11, 11);
+            font-size: 19px;
+            transition: color 0.3s;
+        }
+
+        .navbar ul li a:hover {
+            color: #ffd700;
+        }
+
+        @media (max-width: 768px) {
+            .navbar ul {
+                flex-direction: column;
+                display: none;
+                background-color: rgba(0, 0, 0, 0.8);
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+            }
+
+            .navbar ul.active {
+                display: flex;
+            }
+
+            .navbar .menu-toggle {
+                display: block;
+                cursor: pointer;
+            }
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            background: white;
+            height: 3px;
+            width: 25px;
+            margin: 4px 0;
+        }
+
+      
+        .slideshow-container { 
+    position: relative;
+           
+            height: 600px;
+            /* Adjust the height as needed */
+            width: 90%;
+            position: center;
+            margin-left: 140px;
+
+} 
+ 
+#slideshow { 
+    width: 90%; 
+   height: 600px;
+    transition: opacity 1s ease; /* Smooth transition */ 
+    background-size: cover;
+} 
+
+        h2 {
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        a {
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+    
+        .mision {
+            background-color: rgb(148, 207, 165);
+            padding: 28px;
+        }
+        .vision{
+
+            background-color: #a2a5a3;
+        }
+
+        .mision img,
+        .vision img {
+            max-width: 100%;
+            /* Ensures images scale to fit the container */
+            height: auto;
+            /* Maintains aspect ratio */
+            width: 1000px;
+            /* Adjust this width as needed */
+            margin: 0 auto;
+            /* Centers the image */
+            display: block;
+        }
+
+        .profile-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f4;
+            padding: 30px;
+        }
+
+        .profile {
+            text-align: center;
+            margin: 0 20px;
+        }
+
+        .profile img {
+            border-radius: 10%;
+            border: 3px solid #141313;
+        }
+
+        .profile h3 {
+            font-size: 18px;
+            margin: 10px 0 5px;
+        }
+
+        .profile p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .profile-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f4;
+            padding: 30px;
+        }
+
+        .profile2 {
+            text-align: center;
+            margin: 0 20px;
+        }
+
+        .profile2 img {
+            border-radius: 10%;
+            border: 3px solid #ccc;
+            margin-bottom: 93px;
+        }
+
+        .profile2 h3 {
+            font-size: 18px;
+            margin: 5px 0 4px;
+            margin-bottom: 10px;
+        }
+
+        .profile2 p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        h2 {
+            font-size: 20px;
+            color: rgb(9, 9, 9);
+        }
+
+        .profile img,
+        .profile2 img {
+            width: 260px;
+            /* Set the desired width */
+            height: 260px;
+            /* Set the desired height */
+            border-radius: 50%;
+            border: 3px solid #ccc;
+            gap: 20px;
+        }
+
+        div.gallery {
+            border: 1px solid #ccc;
+        }
+
+        div.gallery:hover {
+            border: 1px solid #777;
+        }
+
+        div.gallery img {
+            width: 300px;
+            /* Adjust to your desired width */
+            height: 400px;
+            /* Adjust to your desired height */
+            object-fit: cover;
+            /* Ensures the image doesn't distort */
+            margin-left: 28px;
+        }
+
+        div.desc {
+            padding: 5px;
+            text-align: center;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .responsive {
+            padding: 0 6px;
+            float: left;
+            width: 24.99999%;
+        }
+
+        @media only screen and (max-width: 700px) {
+            .responsive {
+                width: 49.99999%;
+                margin: 6px 0;
+            }
+        }
+
+        @media only screen and (max-width: 500px) {
+            .responsive {
+                width: 100%;
+            }
+        }
+
+        .clearfix:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .light-section {
+            background-color: #dad6d6;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid #ddd;
+            margin: 20px;
+            border-radius: 10px;
+            height: 450px;
+
+        }
+
+        .light-section h3 {
+            font-size: 25px;
+            color: #510303;
+        }
+
+        .light-section h2 {
+            font-size: 26px;
+            color: #df0f0f;
+        }
+
+        .light-section a {
+            text-decoration: none;
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 19px;
+            display: inline-block;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .light-section a:hover {
+            background-color: #0056b3;
+        }
+
+
+        .new {
+            background-color: #e3dfa4;
+
+            text-align: center;
+            border: 1px solid #ddd;
+
+            border-radius: 10px;
+            height: 900px;
+
+        }
+
+        .new h3 {
+            font-size: 25px;
+            color: #9b186b;
+        }
+
+        .new h2 {
+            font-size: 28px;
+            color: #320369;
+        }
+
+        .new a {
+            text-decoration: none;
+            background-color: #15a472;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 21px;
+            display: inline-block;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .new a:hover {
+            background-color: #3c8d66;
+        }
+
+        .box {
+            font-size: 18px;
+        }
+
+        .box p {
+            font-size: 26px;
+            color: #510303;
+
+        }
+
+        .items {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            padding: 10px;
+            grid-column-gap: 1px;
+            grid-row-gap: 1px;
+
+        }
+
+        .item img {
+            width: 90%;
+            height: 80%;
+            object-fit: cover;
+
+
+        }
+
+        .contain {
+            width: 100%;
+            height: 100vh;
+            background: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .swiper {
+            width: 50%;
+            height: fit-content;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+
+        }
+
+        .swiper .swiper-button-prev,
+        .swiper .swiper-button-next {
+            color: #fff;
+        }
+
+        .swiper .swiper-pagination-bullet-active {
+            background: #fff;
+        }
+       
+       
+        .map  {
+            width: 50%;
+            height: 50%;
+            padding: 30px;
+
+        }
+        .footer {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            padding: 35px;
+            grid-column-gap: 1px;
+            grid-row-gap: 1px;
+            background-color: lightgray;
+        }
+
+        .map2 a {
+            text-decoration: none;
+            background-color: #0e5c16;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 21px;
+            display: inline-block;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+            width: 200px;
+            height: 40px;
+            text-align: center;
+        }
+
+        .map2 a:hover {
+            background-color: #24773e;
+            color: #f3efef;
+        }
+       .map2 h2{
+        font-size: 27px;
+        color: #db183f;
+       }
+       
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .contact-item i {
+            margin-right: 10px;
+            color: #0c0b0b;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar-container">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="newimage.jpeg" alt="Logo"> <!-- Replace with your logo path -->
+                <div class="title">
+                    <h2>
+                        <span>
+                            <font size="6px">ගල්ගමුව ප්‍රාදේශීය සභාව
+                        </span><br></font>
+                        <span>Galgamuwa Pradeshiya Sabha</span><br>
+                        <span>கல்கமுவ பிரதேச சபை</span>
+                    </h2>
+                </div>
+            </div>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">මුල් පිටුව</a></li>
+                <li><a href="about.html">අප ගැන</a></li>
+                <li><a href="app.html">අයදුම්පත්‍ර</a></li>
+                <li><a href="gallery.html">ගැලරිය</a></li>
+                <li><a href="service.html">අපගේ සේවා</a></li>
+                <li><a href="report.html">වාර් තා</a></li>
+            </ul>
+        </nav>
+    </div>
+    <br>
+    <!-- Background image section -->
+    <div class="slideshow-container"> 
+        <img id="slideshow" src="sabha.jpeg" alt="Slideshow Image"> 
+    </div> 
+ 
+    <script src="script.js"></script> 
+
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+
+
+    <div class="mision">
+        <center><img src="m2.png" alt="Mission Image"></center>
+    </div>
+
+
+    <div class="vision">
+        <center><img src="v1.png" alt="Vision Image"></center>
+    </div>
+
+    <!-- Profile Section -->
+    <div class="profile-section">
+        <div class="profile2">
+            <img src="i2.png" alt="ChairmanPhoto"> <!-- Replace with Secretary's photo path -->
+            <h3>සභාපති</h3>
+            <h3>Chairman</h3>
+            <h3>தலைவர்</h3>
+        </div>
+        <div class="profile">
+            <img src="s.jpeg" alt="Secretary Photo"> <!-- Replace with Chairman's photo path -->
+            <h3>ලේකම්</h3>
+            <h3>Secretary</h3>
+            <h3>செயலாளர்</h3>
+            <h3>ඒ.බී.නිමල් රත්නායක</h3>
+            <h3>A.B.Nimal Rathnayaka</h3>
+            <h3>ஏ.பி.நிமல் ரத்நாயக்க</h3>
+        </div>
+    </div>
+
+    <div class="responsive">
+        <div class="gallery">
+            <a target="_blank" href="g1.png">
+                <img src="g1.png" alt="Cinque Terre" width="600" height="400">
+            </a>
+
+        </div>
+    </div>
+
+    <div class="responsive">
+        <div class="gallery">
+            <a target="_blank" href="g2.png">
+                <img src="g2.png" alt="Forest" width="600" height="400">
+            </a>
+
+        </div>
+    </div>
+
+    <div class="responsive">
+        <div class="gallery">
+            <a target="_blank" href="g3.png">
+                <img src="g3.png" alt="Northern Lights" width="600" height="400">
+            </a>
+
+        </div>
+    </div>
+
+    <div class="responsive">
+        <div class="gallery">
+            <a target="_blank" href="g4.png">
+                <img src="g4.png" alt="Mountains" width="600" height="400">
+            </a>
+
+        </div>
+    </div>
+
+    <div class="responsive">
+        <div class="gallery">
+            <a target="_blank" href="g5.png">
+                <img src="g5.png" alt="Mountains" width="600" height="400">
+            </a>
+
+        </div>
+    </div>
+
+    <div class="responsive">
+        <div class="gallery">
+            <a target="_blank" href="g6.png">
+                <img src="g6.png" alt="Mountains" width="600" height="400">
+            </a>
+
+        </div>
+    </div>
+
+
+    <div class="clearfix"></div>
+
+    <!-- New Light Section -->
+
+    <div class="light-section">
+        <h3>පළාත් පාලන ආයතනය සඳහා පුරවැසි ප්‍රඥප්තිය</h3>
+        <h3>ගල්ගමුව ප්‍රාදේශීය සභාව</h3>
+        <a href="https://drive.google.com/file/d/1z5roM5RhOzFviy3DpfY6TIGr93E-izIv/view?usp=sharing"
+            target="_blank">භාගත කරන්න</a><br><br>
+<hr>
+            <h3><font color="red">අයවැය සඳහා බලප්‍රදේශයේ මහජනතාවගේ යෝජනා ලබාගැනීම.</font></h3>
+        <a href="https://forms.gle/s1P6rDyuEkE1GDfh6 "
+            target="_blank">භාගත කරන්න</a><br><br>
+    </div>
+
+   
+
+
+    <div class="new">
+        <b><u>
+                <h2>දුක් ගැනවිලි යාන්ත්‍රණය</h2>
+            </u></b>
+        <h3>ගල්ගමුව ප්‍රාදේශීය සභා බල ප්‍රදේශයේ ජීවත් වන ඔබගේ අදහස්,යෝජනා හා චෝදනා පහත ක්‍රම මගින් ඉදිරිපත් කරන්න. </h3>
+
+        <a href="https://forms.gle/JkFGWhbzFYPvC95B9 " target="_blank">දුක් ගැනවිල්ල ඉදිරිපත් කරන්න</a>
+        <a href="https://www.facebook.com/home.php " target="_blank">Facebook(මුහුණු පොත)</a>
+        <br><br><br>
+
+        <center><img src="f2.png" alt="Mountains" width="200" height="200"></center>
+        <br><br>
+        <div class="box">
+            <b>
+                <h4>ලිපිනය: ප්‍රාදේශීය සභාව,ගල්ගමුව</h4>
+            </b>
+            <h4> Address: Pradheshiya Sabha,Galgamuwa</h4>
+            <h4> முகவரி:  பிரதேச சபை, கல்கமுவ</h4>
+            <h4> Contact: 037-2254081 / 037-2254080</h4>
+            <h4> email: galgamuwaps@gmail.com/galgamuwaps@yahoo.com</h4><br><br>
+
+            <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+            <u><b>
+                    <h2>
+                        <font color="blue">ගල්ගමුව බල ප්‍රදේශ සිතියම</font>
+                    </h2>
+                </b></u>
+            <center><img src="map.png" alt="Mountains" width="600" height="500" style="border: 5px solid blue;">
+            </center>
+            <br><br>
+
+            <!-- move image-->
+            <div class="contain">
+                <div class="swiper">
+
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide"><img src="off1.jpg"> </div>
+                        <div class="swiper-slide"><img src="off2.jpg"> </div>
+                        <div class="swiper-slide"><img src="off3.jpg"> </div>
+                        <div class="swiper-slide"><img src="off4.jpg"> </div>
+                        <div class="swiper-slide"><img src="off5.jpg"> </div>
+                        <div class="swiper-slide"><img src="off6.jpg"> </div>
+                        <div class="swiper-slide"><img src="off7.jpg"> </div>
+                        <div class="swiper-slide"><img src="off8.jpg"> </div>
+
+                    </div>
+
+                    <div class="swiper-pagination"></div>
+
+
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+
+
+                </div>
+            </div>
+
+            <br>
+
+            <!-- gallery image-->
+            <b>
+                <p><u>අප ප්‍රදේශයේ සංචාරය කිරීමට පැමිණෙන ඔබට අපගේ ප්‍රාදේශීය සභා බල ප්‍රදේශය අවට පිහිටි සුන්දර හා
+                        ‌ඵෙතිහාසික ස්ථාන</u></p>
+            </b>
+            <section class="items">
+                <div class="item">
+
+                    <img src="histo.jpg">
+                    <b>
+                        <div class="desc">නිල්ලග්ගම බෝධිඝරය</div>
+                    </b>
+
+                </div>
+                <div class="item">
+                    <img src="histo3.jpg">
+                    <b>
+                        <div class="desc">රාජාංගනය ජලාශය</div>
+                    </b>
+
+                </div>
+                <div class="item">
+                    <img src="histo2.jpg">
+                    <b>
+                        <div class="desc">හත්තිකුච්චි විහාරය</div>
+                    </b>
+                </div>
+
+                <div class="item">
+                    <img src="histo4.jpg">
+                    <b>
+                        <div class="desc">නාගල රජමහා විහාරය-නිකවැව</div>
+                    </b>
+
+                </div>
+                <div class="item">
+                    <img src="histo6.jpg">
+                    <b>
+                        <div class="desc">සියඹලන්ගමුව ජලාශය</div>
+                    </b>
+                </div>
+
+                <div class="item">
+                    <img src="histo7.jpg">
+                    <b>
+                        <div class="desc">බුදුරුවකන්ද රජමහා විහාරය</div>
+                    </b>
+
+                </div>
+                <div class="item">
+                    <img src="histo8.jpg">
+                    <b>
+                        <div class="desc">රැස්වෙහෙර විහාරය</div>
+                    </b>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- footer-->
+        <section class="footer">
+           
+            <div class="map2">
+               <h2>ඔබගේ යෝජනා,අදහස් මෙම යොමුව මගින් ඉදිරිපත් කළ හැක </h2>
+               <a href="https://docs.google.com/forms/d/e/1FAIpQLScWOtVlfPLCjEV1O15OTBj2_FpzcImk-b3Z8flMGlnVHm9fKQ/viewform?usp=header " target="_blank"> ඉදිරිපත් කරන්න</a>
+            </div>
+
+        <div class="map2">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d89404.6380629355!2d80.23390049430674!3d7.981981117121645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afcdd3641c73041%3A0x83b670978f276aca!2sGalgamuwa%20Pradeshiya%20Sabhawa!5e0!3m2!1sen!2slk!4v1736489855539!5m2!1sen!2slk"
+                width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="map2">
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Location: Pradheshiya Sabha,Galgamuwa</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>Phone:037-2254081 / 037-2254080</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>Email:galgamuwaps@gmail.com   /    galgamuwaps@yahoo.com</span>
+            </div>
+        </div>
+
+        </section>
+
+
+    </div>
+
+    
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+    <script>
+
+        const swiper = new Swiper('.swiper', {
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+
+            loop: true,
+
+
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+
+
+
+        });
+    </script>
+
+
+</body>
+
+</html>
